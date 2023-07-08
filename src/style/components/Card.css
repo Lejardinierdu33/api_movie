@@ -1,0 +1,79 @@
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+.card_decoration {
+  font-family: "Noto Sans", sans-serif;
+  height: 450px;
+  width: 300px;
+  display: inline-block;
+  position: relative;
+}
+.img_btn {
+  height: 100%;
+  width: 100%;
+  position: relative;
+}
+
+.card_decoration button {
+  position: absolute;
+  top: 10px;
+  left: 250px;
+  border: none;
+  background-color: transparent;
+  color: white;
+  cursor: pointer;
+}
+
+.card_decoration button:hover {
+  color: red;
+}
+
+.card_decoration button.active {
+  color: red;
+}
+
+.card_decoration img {
+  height: 100%;
+  width: 100%;
+}
+
+.section_text {
+  position: absolute;
+  width: 100%;
+  bottom: 0; /* Démarre en bas */
+  left: 0;
+  text-align: center;
+  opacity: 0;
+  background-color: rgba(255, 255, 255, 0.75);
+  color: black;
+  transform: translateY(110%); /* Déplace le texte en dehors de l'overlay */
+  transition: transform 0.3s ease; /* Transition en douceur */
+}
+
+.card_decoration:hover .section_text {
+  transform: translateY(0); /* Glisse le texte vers le haut lors du survol */
+  opacity: 1;
+}
+
+.title_section {
+  display: flex;
+  flex-direction: column;
+  height: auto;
+  gap: 15px;
+}
+
+.resume_limite {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 5; /* Nombre de lignes à afficher */
+  white-space: normal; /* Pour éviter la coupure de mots */
+    cursor: pointer;
+    margin-top: 20px;
+}
+
+
+.resume_limite:hover {
+  height: auto;
+  display: initial;
+}
