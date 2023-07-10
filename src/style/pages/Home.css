@@ -1,15 +1,18 @@
 @import url("https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 
+body {
+  background-color: #000;
+}
 
 header {
   padding-top: 150px;
-  background-color: black;
-  width: 100%;
-  height: auto;
-  color: white;
+  background-color: #000;
+  color: #fff;
   font-family: "Noto Sans", sans-serif;
   display: flex;
   flex-direction: row;
+  align-items: center;
+  justify-content: center;
 }
 
 .container_tri {
@@ -23,15 +26,16 @@ header {
 
 .search_container {
   height: 46px;
-  width: 50%;
+  width: 100%;
 }
 
 .search_container input {
-  background-color: transparent;
-  color: white;
-  border: 2px solid white;
+  background-color: #222;
+  color: #fff;
+  border: none;
   height: 100%;
   width: 100%;
+  padding: 10px;
   border-radius: 5px;
   text-align: center;
   font-size: 1.5rem;
@@ -48,16 +52,15 @@ header {
   padding: 10px 20px;
   font-size: 1rem;
   font-family: "Noto Sans", sans-serif;
-  border: 2px solid white;
-  background: transparent;
-  color: white;
+  border: none;
+  background-color: #c62828;
+  color: #fff;
   border-radius: 5px;
   cursor: pointer;
 }
 
 .container_tri button:hover {
-  border: 2px solid red;
-  color: red;
+  background-color: #e53935;
   transform: translateX(3px);
 }
 
@@ -65,49 +68,48 @@ header {
   width: 15%;
   display: flex;
   justify-content: space-around;
+  align-items: center;
 }
 
 .tri_btn button {
   border: none;
   background-color: transparent;
-  color: white;
+  color: #fff;
   font-family: "Noto Sans", sans-serif;
   font-size: 2rem;
+  cursor: pointer;
 }
 
 .tri_btn button:hover {
-  color: red;
+  color: #e53935;
   font-size: 2.1rem;
 }
 
 .tri_btn button.active {
-  color: red;
+  color: #e53935;
 }
 
-
 .container_card_tri {
-  background-color: black;
-  color: white;
+  background-color: #000;
+  color: #fff;
   display: flex;
-  flex-direction: row;
   flex-wrap: wrap;
   padding-top: 80px;
-  height: 100%;
 }
 
 .container_tri_liste {
-  height: 100%;
-  width: 10%;
+  width: 20%;
   padding-left: 15px;
-  display: flex;
-  flex-direction: column;
-  gap: 50px;
+}
+
+.container_tri_liste h1 {
+  font-size: 2rem;
+  margin-bottom: 20px;
 }
 
 .container_tri_liste ul {
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
   gap: 15px;
   font-size: 1.5rem;
 }
@@ -119,21 +121,21 @@ header {
 }
 
 .container_tri_liste ul li:hover {
-  font-size: 1.6rem;
-  color: red;
+  color: #e53935;
 }
 
 .container_tri_liste ul li.active {
-  color: red;
+  color: #e53935;
 }
 
 .container_card {
-  width: 90%;
-  height: 100%;
+  width: 80%;
   display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
   flex-wrap: wrap;
   gap: 20px;
+}
+
+.container_card::after {
+  content: "";
+  flex: auto;
 }

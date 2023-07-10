@@ -6,21 +6,26 @@
   width: 300px;
   display: inline-block;
   position: relative;
+  overflow: hidden;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
 }
+
 .img_btn {
+  position: relative;
   height: 100%;
   width: 100%;
-  position: relative;
 }
 
 .card_decoration button {
   position: absolute;
   top: 10px;
-  left: 250px;
+  right: 10px;
   border: none;
   background-color: transparent;
   color: white;
   cursor: pointer;
+  transition: color 0.3s ease;
 }
 
 .card_decoration button:hover {
@@ -34,31 +39,32 @@
 .card_decoration img {
   height: 100%;
   width: 100%;
+  object-fit: cover;
 }
 
 .section_text {
   position: absolute;
   width: 100%;
-  bottom: 0; /* Démarre en bas */
+  bottom: 0;
   left: 0;
   text-align: center;
-  opacity: 0;
-  background-color: rgba(255, 255, 255, 0.75);
+  background-color: rgba(255, 255, 255, 0.9);
   color: black;
-  transform: translateY(110%); /* Déplace le texte en dehors de l'overlay */
-  transition: transform 0.3s ease; /* Transition en douceur */
+  transform: translateY(100%);
+  transition: transform 0.3s ease, opacity 0.3s ease;
+  padding: 15px;
 }
 
 .card_decoration:hover .section_text {
-  transform: translateY(0); /* Glisse le texte vers le haut lors du survol */
+  transform: translateY(0);
   opacity: 1;
 }
 
 .title_section {
   display: flex;
   flex-direction: column;
+  gap: 10px;
   height: auto;
-  gap: 15px;
 }
 
 .resume_limite {
@@ -66,14 +72,18 @@
   text-overflow: ellipsis;
   display: -webkit-box;
   -webkit-box-orient: vertical;
-  -webkit-line-clamp: 5; /* Nombre de lignes à afficher */
-  white-space: normal; /* Pour éviter la coupure de mots */
-    cursor: pointer;
-    margin-top: 20px;
+  -webkit-line-clamp: 5;
+  white-space: normal;
+  cursor: pointer;
+  margin-top: 10px;
+  transition: height 0.3s ease;
+  max-height: 80px; /* Ajout de cette ligne */
 }
 
+.card_decoration:hover .resume_limite {
+  max-height: none; /* Ajout de cette ligne */
+}
 
 .resume_limite:hover {
-  height: auto;
-  display: initial;
+  white-space: normal;
 }

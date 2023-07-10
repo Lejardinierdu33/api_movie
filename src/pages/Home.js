@@ -1,26 +1,19 @@
 import React, { useEffect } from "react";
 import Nav from "../components/Nav";
-// import intro from "./intro.mp3";
 import axios from "axios";
 import Card from "../components/Card";
 import Footer from "../components/Footer";
 
 function Home() {
-  //   const audioRef = useRef(null);
   const [movieList, setMovieList] = React.useState([]);
   const [searchResult, setSearchResult] = React.useState("");
   const [sortMethod, setSortMethod] = React.useState("");
   const [genreList, setGenresList] = React.useState([]);
   const [selectedCategory, setSelectedCategory] = React.useState(null);
 
-
   const resetCategory = () => {
     setSelectedCategory(null);
   };
-  
-  //   useEffect(() => {
-  //     audioRef.current.play();
-  //   }, []);
 
   const foundMovie = async () => {
     if (searchResult === "") return;
@@ -56,14 +49,29 @@ function Home() {
     localStorage.setItem("genresList", JSON.stringify(response.data.genres));
   };
 
+  const getPopularMovies = async () => {
+    const options = {
+      method: "GET",
+      url: "https://api.themoviedb.org/3/movie/popular",
+      params: {
+        api_key: "255fffb51902ef1337a66916c2a62b4e",
+        language: "fr-FR",
+        page: 1,
+      },
+    };
+
+    const response = await axios.request(options);
+    setMovieList(response.data.results);
+  };
+
   useEffect(() => {
     genreMovie();
+    getPopularMovies();
   }, []);
 
   return (
     <div>
       <Nav />
-      {/* <audio ref={audioRef} src={intro} autoPlay="true" /> */}
       <header>
         <div className="tri_btn">
           <button onClick={() => setSortMethod("top")}>Top</button>
