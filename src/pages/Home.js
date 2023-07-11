@@ -67,7 +67,7 @@ function Home() {
   useEffect(() => {
     genreMovie();
     getPopularMovies();
-  }, []);
+  }, [searchResult]);
 
   return (
     <div>
@@ -113,7 +113,7 @@ function Home() {
             .sort((a, b) => {
               if (sortMethod === "flop") {
                 return a.vote_average - b.vote_average;
-              } else if (sortMethod === "top") {
+              } else {
                 return b.vote_average - a.vote_average;
               }
             })
